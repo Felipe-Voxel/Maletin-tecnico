@@ -1,0 +1,5 @@
+#Buscar regla de firewall por puerto
+Get-NetFirewallRule | Where-Object { (Get-NetFirewallPortFilter -AssociatedNetFirewallRule $_).LocalPort -eq 8065 }
+
+# Eliminar regla de firewall por nombre
+Remove-NetFirewallRule -DisplayName "Voxel.Transactions.Constraints.Service_8065"

@@ -1,0 +1,41 @@
+#Conectar a la shell remota
+#En caso de que falle el WinRM
+Enter-PSSession -ComputerName AWVXR-TXAPI-001.voxelgroup.net -Credential rivers@voxelgroup.net -UseSSL:$false
+
+Enter-PSSession -UseSSL -SessionOption $(New-PSSessionOption -SkipCACheck -SkipCNCheck) -Credential rivers@voxelgroup.net -ComputerName BWVXP-SC-004.voxelgroup.net
+
+
+
+#Tirar este commando tal cual (copy/paste) en PowerShell como admin:
+
+$hostname = hostname
+$cert = New-SelfSignedCertificate -DnsName "$hostname" -CertStoreLocation "Cert:\LocalMachine\My" -NotAfter (Get-Date).AddYears(10)
+New-Item -Path WSMan:\LocalHost\Listener -Transport HTTPS -Address * -CertificateThumbPrint $Cert.Thumbprint -Force
+Enable-WSManCredSSP -Role Server -Force
+New-NetFirewallRule -Name "WinRM_HTTPS" -DisplayName "WinRM over HTTPS" -Protocol TCP -LocalPort 5986 -Direction Inbound -Action Allow
+
+
+#Si crear el certi da problemas, usar esto: New-SelfSignedCertificate -DnsName $hostname -CertStoreLocation "Cert:\LocalMachine\My"
+
+
+#Esta parte da problemas
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0Set-Service -Name sshd -StartupType 'Automatic'Start-Service sshd
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+
+
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0Set-Service -Name sshd -StartupType 'Automatic'Start-Service sshd
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0;
+Set-Service -Name sshd -StartupType Automatic;
+Start-Service sshd;
+
+
+#Reiniciar servicio WinRM
+Restart-Service -Name WinRM -Force
+
+
+winrm enumerate winrm/config/listener
+
+Get-ChildItem Cert:\LocalMachine\My | Select-Object Subject, Issuer, Thumbprint, NotBefore, NotAfter
+
+New-Item -Path WSMan:\localhost\Listener\ -Transport HTTPS -Address * -CertificateThumbPrint "28C9D99C8B782883EADF43AF776DEBD96B9E4CF3" -Force

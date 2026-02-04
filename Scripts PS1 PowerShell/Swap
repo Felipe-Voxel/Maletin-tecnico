@@ -1,0 +1,3 @@
+#listar en qué está ocupada la memoria SWAP
+
+Get-Process | Select-Object Name, Id, @{ Name = "PagedMB"; Expression = { "{0:N2}" -f ($_.PagedMemorySize64 / 1MB) } } | Sort-Object PagedMB -Descending
