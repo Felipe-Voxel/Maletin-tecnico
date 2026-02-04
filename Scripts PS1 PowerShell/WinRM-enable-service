@@ -1,4 +1,4 @@
-#Conectar a la shell remota
+
 #En caso de que falle el WinRM
 Enter-PSSession -ComputerName AWVXR-TXAPI-001.voxelgroup.net -Credential rivers@voxelgroup.net -UseSSL:$false
 
