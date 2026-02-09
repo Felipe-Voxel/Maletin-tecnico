@@ -13,9 +13,6 @@ Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9
 token nuevo: NjMwOnhOYXZITDFDaFFYV0xMR1IwSzAvSW1CZFJlcURwdFF1MG9iQmZWanBBY1U9
 
 
-curl -H "Authorization: Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9" \ https://voxelgroup.tpondemand.com/api/v2/Requests
-
-
 Invoke-RestMethod `
   -Uri "https://voxelgroup.tpondemand.com/api/v2/Projects" `
   -Headers @{ "Authorization" = "Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9" }
