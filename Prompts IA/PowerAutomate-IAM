@@ -1,0 +1,24 @@
+Como experto en automatizaciones y flujos de trabajo, necesito que me ayudes para pasar el asunto y el cuerpo de un mail que entra en el buzón iamvoxel1@amadeus.com a una tarjeta de TargetProcess https://voxelgroup.tpondemand.com/ dentro del project Requests Sistemas Queue y dentro del Team [OPS] FrontOps. Que el asunto del mail sea el título de la tarjeta y el cuerpo del mail que sea la descripción de la tarjeta. ¿Podría ser con PowerAutomate y algun tipo de WebHook? Necesito los pasos para dummies.
+
+Project ID: 6760 (Project)
+Feature ID: 109213 (Team)
+Access Token: NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9
+URL de la API: https://voxelgroup.tpondemand.com/api/v2
+
+
+concat('Bearer ', 'NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9')
+
+Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9
+
+token nuevo: NjMwOnhOYXZITDFDaFFYV0xMR1IwSzAvSW1CZFJlcURwdFF1MG9iQmZWanBBY1U9
+
+
+curl -H "Authorization: Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9" \ https://voxelgroup.tpondemand.com/api/v2/Requests
+
+
+Invoke-RestMethod `
+  -Uri "https://voxelgroup.tpondemand.com/api/v2/Projects" `
+  -Headers @{ "Authorization" = "Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9" }
+
+
+  NECESITO UN API ACCESS TOKEN dentro de mi perfil de TP o ver otro modo de automatizarlo.
