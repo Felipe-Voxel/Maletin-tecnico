@@ -2,20 +2,7 @@ Como experto en automatizaciones y flujos de trabajo, necesito que me ayudes par
 
 Project ID: 6760 (Project)
 Feature ID: 109213 (Team)
-Access Token: NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9
+Access Token:
 URL de la API: https://voxelgroup.tpondemand.com/api/v2
 
-
-concat('Bearer ', 'NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9')
-
-Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9
-
-token nuevo: NjMwOnhOYXZITDFDaFFYV0xMR1IwSzAvSW1CZFJlcURwdFF1MG9iQmZWanBBY1U9
-
-
-Invoke-RestMethod `
-  -Uri "https://voxelgroup.tpondemand.com/api/v2/Projects" `
-  -Headers @{ "Authorization" = "Bearer NjMwOmxNU0FyVDlDd1p6YUZkYXJjUk9zNzhQTktSZ3RPM1QwRGNQQ1dpZm84bTQ9" }
-
-
-  NECESITO UN API ACCESS TOKEN dentro de mi perfil de TP o ver otro modo de automatizarlo.
+NECESITO UN API ACCESS TOKEN dentro de mi perfil de TP o ver otro modo de automatizarlo.
